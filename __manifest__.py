@@ -16,7 +16,7 @@
     'version': '0.1',
     'depends': ['base'],
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/base_menu_view.xml',
         'views/patiant_view.xml',
     ],
