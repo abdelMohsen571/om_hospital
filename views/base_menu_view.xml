@@ -2,6 +2,7 @@
 <odoo>
     <menuitem id="hospital_root_menu"
               name="Hospital "
+              web_icon="om_hospital,static/description/icon.png"
               sequence="0"/>
 
     <menuitem id="patiant_root_menu"
