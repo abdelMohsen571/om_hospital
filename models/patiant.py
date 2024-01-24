@@ -6,4 +6,5 @@ class HospitalPatiant(models.Model):
     _description = 'Pationt description'
 
     name = fields.Char(string="name")
+    age = fields.Integer(string="age")
     description = fields.Text()
