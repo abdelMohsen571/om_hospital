@@ -19,6 +19,7 @@
         'security/ir.model.access.csv',
         'views/base_menu_view.xml',
         'views/patiant_view.xml',
+        'views/female_patiant_view.xml',
     ],
     'demo': [],
     'installable': True,

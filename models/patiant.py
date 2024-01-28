@@ -8,3 +8,6 @@ class HospitalPatiant(models.Model):
     name = fields.Char(string="name")
     age = fields.Integer(string="age")
     description = fields.Text()
+    gender=fields.Selection([('male','Male'),('female','Female')])
+    active=fields.Boolean(string="active",default=True)
+

@@ -9,6 +9,8 @@
                     <group>
                         <field name="name"/>
                         <field name="age"/>
+                        <field name="gender"/>
+                        <field name="active"/>
                     </group>
                 </sheet>
             </form>
@@ -21,6 +23,8 @@
             <tree>
                 <field name="name"/>
                 <field name="age"/>
+                <field name="gender"/>
+                <field name="active" invisible="1"/>
             </tree>
         </field>
     </record>
@@ -32,6 +36,18 @@
             <search>
                 <field name="name" filter_domain="['|',('name','ilike','self),('age','ilike','self) ]"/>
                 <field name="age"/>
+
+                <filter name="is_male" string="Is Male" domain="[('gender','=','male')]"/>
+                <filter name="is_female" string="Is Female" domain="[('gender','=','female')]"/>
+                <separator/>
+                <filter name="is_kids" string="Is Kiss" domain="[('age','&lt;=','5')]"/>
+                <separator/>
+                <filter name="archived_filter" string="Archived" domain="[('active','=','true')]"/>
+
+                <group expand="0" string="">
+                    <filter name="age_group" string="age" context="{'group_by':'age'}"/>
+                </group>
+
             </search>
         </field>
     </record>
