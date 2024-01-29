@@ -9,9 +9,9 @@ class HospitalPatiant(models.Model):
     _description = 'Pationt description'
 
     name = fields.Char(string="name",tracking=True)
+    ref = fields.Text(string='Reference')
     date_of_birth=fields.Date(string='Date Of Birth')
     age = fields.Integer(string="age",compute='_compute_age',store=True)
-    description = fields.Text(string='Description')
     gender=fields.Selection([('male','Male'),('female','Female')])
     active=fields.Boolean(string="active",default=True)
 

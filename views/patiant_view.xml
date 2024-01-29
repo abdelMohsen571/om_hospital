@@ -8,6 +8,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="ref"/>
                         <field name="date_of_birth"/>
                         <field name="age"/>
                         <field name="gender"/>
@@ -27,6 +28,7 @@
         <field name='arch' type="xml">
             <tree>
                 <field name="name"/>
+                <field name="ref"/>
                 <field name="age"/>
                 <field name="gender"/>
                 <field name="active" invisible="1"/>
