@@ -11,9 +11,14 @@ class HospitalAppointment(models.Model):
     gender = fields.Selection(related='patiant_id.gender', string="Gender", readonloy=True)
     appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now())
     booking_date = fields.Date(string='Booking Date', defautl=fields.Date.context_today)
-    prescription=fields.Html(string="Prescription")
-
+    prescription = fields.Html(string="Prescription")
+    priority = fields.Selection([
+        ('0', 'Normal'),
+        ('1', 'Low'),
+        ('2', 'High'),
+        ('3', 'Very High'),
+    ], string="Priority", )
 
     @api.onchange('patiant_id')
     def onchange_patiant_id(self):
-      self.ref = self.patiant_id.ref
+        self.ref = self.patiant_id.ref
