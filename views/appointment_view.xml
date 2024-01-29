@@ -18,6 +18,19 @@
                         </group>
                     </group>
 
+                    <notebook>
+                        <page string="Prescription"  name="prescription">
+                            <group>
+                                <field name="prescription" placeholder="Enter your prescription"/>
+                            </group>
+                        </page>
+                        <page string="Pharmacy"  name="pharmacy">
+                            <group>
+                                <field name="ref"/>
+                            </group>
+                        </page>
+                    </notebook>
+
 
                 </sheet>
                 <div class="oe_chatter">
