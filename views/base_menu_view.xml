@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <menuitem id="hospital_root_menu"
+    <menuitem id="real_state_root_menu"
               name="Hospital "
               web_icon="om_hospital,static/description/icon.png"
               sequence="0"/>

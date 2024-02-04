@@ -18,7 +18,19 @@ class HospitalAppointment(models.Model):
         ('2', 'High'),
         ('3', 'Very High'),
     ], string="Priority", )
+    state = fields.Selection([('draft', 'Draft'), ('waiting', 'Waiting'), ('done', 'Done'), ('canceled', 'Canceled ')],
+                             default='draft', string="Status Bar")
 
     @api.onchange('patiant_id')
     def onchange_patiant_id(self):
         self.ref = self.patiant_id.ref
+
+    def action_test(self):
+        print('button clicked!!!!!!!!!!!11')
+        return {
+            'effect':{
+                'fadeout':'slow',
+                'message':'Click sucess',
+                'type':'rainbow_man'
+            }
+        }
