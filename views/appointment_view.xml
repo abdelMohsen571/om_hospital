@@ -63,7 +63,7 @@
         <field name='model'>hospital.appointment</field>
         <field name='arch' type="xml">
             <tree decoration-success="state =='done'" decoration-danger="state =='canceled'"
-                  decoration-warning="state =='waiting'" decoration-info="state =='draft'">
+                  decoration-warning="state =='waiting'" >
                 <field name="patiant_id"/>
                 <field name="ref"/>
                 <field name="appointment_time"/>
