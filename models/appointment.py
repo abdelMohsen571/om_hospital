@@ -20,6 +20,7 @@ class HospitalAppointment(models.Model):
     ], string="Priority", )
     state = fields.Selection([('draft', 'Draft'), ('waiting', 'Waiting'), ('done', 'Done'), ('canceled', 'Canceled ')],
                              default='draft', string="Status Bar")
+    doctor_id=fields.Many2one('res.users' ,string='Doctor')
 
     @api.onchange('patiant_id')
     def onchange_patiant_id(self):
