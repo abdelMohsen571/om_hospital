@@ -41,7 +41,7 @@
         <field name='model'>hospital.patiant</field>
         <field name='arch' type="xml">
             <search>
-                <field name="name" filter_domain="['|',('name','ilike','self),('age','ilike','self) ]"/>
+                <field name="name" filter_domain="['|',('name','ilike','self'),('age','ilike','self') ]"/>
                 <field name="age"/>
 
                 <filter name="is_male" string="Is Male" domain="[('gender','=','male')]"/>

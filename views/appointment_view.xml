@@ -7,7 +7,8 @@
             <form delete="0">
                 <sheet>
                     <header>
-                        <field name="state" widget="statusbar" nolabel="1" options="{'clickable':'1'}" statusbar_visible="draft,waiting,done"/>
+                        <field name="state" widget="statusbar" nolabel="1" options="{'clickable':'1'}"
+                               statusbar_visible="draft,waiting,done"/>
                     </header>
                     <div>
                         <h1>
@@ -25,7 +26,7 @@
                             <field name="appointment_time"/>
                         </group>
                         <group>
-                            <button name="action_test" string="object Button"  type="object" class="oe_highlight"/>
+                            <button name="action_test" string="object Button" type="object" class="oe_highlight"/>
                             <button name="%(om_hospital.action_patiant_hospital)d"
                                     string="action Button"
                                     type="action"
@@ -61,7 +62,8 @@
         <field name="name">hospital.appointment.form</field>
         <field name='model'>hospital.appointment</field>
         <field name='arch' type="xml">
-            <tree>
+            <tree decoration-success="state =='done'" decoration-danger="state =='canceled'"
+                  decoration-warning="state =='waiting'" decoration-info="state =='draft'">
                 <field name="patiant_id"/>
                 <field name="ref"/>
                 <field name="appointment_time"/>
@@ -75,14 +77,14 @@
         </field>
     </record>
 
-    <record id="view_hospital_appointment_search" model="ir.ui.view">
-        <field name="name">hospital.appointment.search</field>
-        <field name='model'>hospital.appointment</field>
-        <field name='arch' type="xml">
-            <search>
-            </search>j
-        </field>
-    </record>
+    <!--    <record id="view_hospital_appointment_search" model="ir.ui.view">-->
+    <!--        <field name="name">hospital.appointment.search</field>-->
+    <!--        <field name='model'>hospital.appointment</field>-->
+    <!--        <field name='arch' type="xml">-->
+    <!--            <search>-->
+    <!--            </search>j-->
+    <!--        </field>-->
+    <!--    </record>-->
 
     <record id="action_appointment_hospital" model="ir.actions.act_window">
         <field name="name">Appointments</field>
@@ -102,4 +104,5 @@
               sequence="0"
               parent="appointment_root_menu"
               action="action_appointment_hospital"/>
+
 </odoo>

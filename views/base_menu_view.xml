@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <menuitem id="real_state_root_menu"
-              name="Hospital "
-              web_icon="om_hospital,static/description/icon.png"
-              sequence="0"/>
+    <menuitem id="hospital_root_menu"
+              name="Hospital"/>
 
     <menuitem id="patiant_root_menu"
               name="Patiant Details "
-              parent="hospital_root_menu"
-              sequence="0"/>
+              parent="hospital_root_menu"/>
 
     <menuitem id="appointment_root_menu"
-              name="Appointments Details "
-              parent="hospital_root_menu"
-              sequence="0"/>
+              name="Appointments Details"
+              parent="hospital_root_menu"/>
 
 
 </odoo>
+<!--        web_icon="om_hospital,static/description/icon.png"-->
