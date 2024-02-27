@@ -41,7 +41,7 @@
                     <notebook>
                         <page string="Prescription" name="prescription">
                             <group>
-                                <field name="prescription" placeholder="Enter your prescription"/>
+                                <field name="prescription" placeholder="Enter your prescription" optional="{'collaborative:True}"/>
                             </group>
                         </page>
                         <page string="Pharmacy" name="pharmacy">
@@ -110,3 +110,4 @@
               action="action_appointment_hospital"/>
 
 </odoo>
+

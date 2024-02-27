@@ -21,6 +21,7 @@
         'views/patiant_view.xml',
         'views/female_patiant_view.xml',
         'views/appointment_view.xml',
+        'views/users.xml',
     ],
 
     'demo': [],
