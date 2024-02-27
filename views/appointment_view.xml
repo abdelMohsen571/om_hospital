@@ -17,8 +17,8 @@
                     </div>
                     <group>
                         <group>
-                            <field name="doctor_id" widget="many2one_avatar_user"/>
-                            <field name="patiant_id"/>
+                            <field name="doctor_id" widget="many2one_avatar_user" />
+                            <field name="patiant_id" default_focus="1"/>
                             <field name="ref"/>
                             <field name="booking_date"/>
                             <field name="activity_ids"/>
