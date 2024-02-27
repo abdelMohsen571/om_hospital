@@ -20,7 +20,7 @@ class HospitalAppointment(models.Model):
     ], string="Priority", )
     state = fields.Selection([('draft', 'Draft'), ('waiting', 'Waiting'), ('done', 'Done'), ('canceled', 'Canceled ')],
                              default='draft', string="Status Bar")
-    doctor_id=fields.Many2one('res.users' ,string='Doctor')
+    doctor_id = fields.Many2one('res.users', string='Doctor')
 
     @api.onchange('patiant_id')
     def onchange_patiant_id(self):
@@ -29,9 +29,24 @@ class HospitalAppointment(models.Model):
     def action_test(self):
         print('button clicked!!!!!!!!!!!11')
         return {
-            'effect':{
-                'fadeout':'slow',
-                'message':'Click sucess',
-                'type':'rainbow_man'
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Click sucess',
+                'type': 'rainbow_man'
             }
         }
+
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'cancel'
+
+    def action_waiting(self):
+        for rec in self:
+            rec.state = 'waiting'
+
+    def action_done(self):
+        for rec in self:
+            rec.state = 'done'
+    def action_draft(self):
+        for rec in self:
+            rec.state = 'draft'

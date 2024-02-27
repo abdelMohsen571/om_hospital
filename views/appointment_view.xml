@@ -7,8 +7,14 @@
             <form delete="0">
                 <sheet>
                     <header>
-                        <field name="state" widget="statusbar" nolabel="1" options="{'clickable':'1'}"
-                               statusbar_visible="draft,waiting,done"/>
+                        <field name="state" widget="statusbar" nolabel="1"
+                               statusbar_visible="draft,waiting,done" />
+                        <button string="In Consultaoin" name="action_waiting" type="object" states="draft"
+                                class="oe_highlight" data-hotkey="w"/>
+                        <button string="Mark As Done" name="action_done" type="object" states="waiting"
+                                class="oe_highlight" data-hotkey="d"/>
+                        <button string="Cancel" name="action_cancel" type="object" states="draft,waiting" data-hotkey="c"/>
+                        <button string="Reset To Draft" name="action_draft" type="object" states="cancel" data-hotkey="t"/>
                     </header>
                     <div>
                         <h1>
@@ -17,7 +23,7 @@
                     </div>
                     <group>
                         <group>
-                            <field name="doctor_id" widget="many2one_avatar_user" />
+                            <field name="doctor_id" widget="many2one_avatar_user"/>
                             <field name="patiant_id" default_focus="1"/>
                             <field name="ref"/>
                             <field name="booking_date"/>
@@ -41,7 +47,8 @@
                     <notebook>
                         <page string="Prescription" name="prescription">
                             <group>
-                                <field name="prescription" placeholder="Enter your prescription" optional="{'collaborative:True , 'resizable':True}"/>
+                                <field name="prescription" placeholder="Enter your prescription"
+                                       optional="{'collaborative:True , 'resizable':True}"/>
                             </group>
                         </page>
                         <page string="Pharmacy" name="pharmacy">
@@ -65,12 +72,12 @@
         <field name='model'>hospital.appointment</field>
         <field name='arch' type="xml">
             <tree decoration-success="state =='done'" decoration-danger="state =='canceled'"
-                  decoration-warning="state =='waiting'" sample="1" multi_edit="1" >
+                  decoration-warning="state =='waiting'" sample="1" multi_edit="1">
                 <field name="patiant_id"/>
                 <field name="doctor_id" widget="many2one_avatar_user"/>
                 <field name="ref"/>
                 <field name="appointment_time" optional="hide"/>
-                <field name="booking_date" />
+                <field name="booking_date"/>
                 <field name="activity_ids" widget="list_activity"/>
                 <field name="gender" optional="show"/>
                 <field name="state" decoration-success="state =='done'"
