@@ -21,6 +21,7 @@ class HospitalAppointment(models.Model):
     state = fields.Selection([('draft', 'Draft'), ('waiting', 'Waiting'), ('done', 'Done'), ('canceled', 'Canceled ')],
                              default='draft', string="Status Bar")
     doctor_id = fields.Many2one('res.users', string='Doctor')
+    pharmacy_lines_ids=fields.One2many('appointment.pharmacy.lines','appointment_id',string='Pharmacy Lines')
 
     @api.onchange('patiant_id')
     def onchange_patiant_id(self):
@@ -47,6 +48,18 @@ class HospitalAppointment(models.Model):
     def action_done(self):
         for rec in self:
             rec.state = 'done'
+
     def action_draft(self):
         for rec in self:
             rec.state = 'draft'
+
+
+class AppointmentPharmacyLines(models.Model):
+    _name = 'appointment.pharmacy.lines'
+    _description = 'Appointment Pharmacy Lines'
+
+    product_id = fields.Many2one('product.product' , requried=True)
+    price_unit = fields.Float(string='Price' , related='product_id.list_price')
+    qty = fields.Integer(string='Quantity')
+    appointment_id=fields.Many2one('hospital.appointment' , string='Appointment')
+

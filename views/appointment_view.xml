@@ -8,13 +8,15 @@
                 <sheet>
                     <header>
                         <field name="state" widget="statusbar" nolabel="1"
-                               statusbar_visible="draft,waiting,done" />
+                               statusbar_visible="draft,waiting,done"/>
                         <button string="In Consultaoin" name="action_waiting" type="object" states="draft"
                                 class="oe_highlight" data-hotkey="w"/>
                         <button string="Mark As Done" name="action_done" type="object" states="waiting"
                                 class="oe_highlight" data-hotkey="d"/>
-                        <button string="Cancel" name="action_cancel" type="object" states="draft,waiting" data-hotkey="c"/>
-                        <button string="Reset To Draft" name="action_draft" type="object" states="cancel" data-hotkey="t"/>
+                        <button string="Cancel" name="action_cancel" type="object" states="draft,waiting"
+                                data-hotkey="c"/>
+                        <button string="Reset To Draft" name="action_draft" type="object" states="cancel"
+                                data-hotkey="t"/>
                     </header>
                     <div>
                         <h1>
@@ -53,7 +55,21 @@
                         </page>
                         <page string="Pharmacy" name="pharmacy">
                             <group>
-                                <field name="ref"/>
+                                <field name="pharmacy_lines_ids">
+                                    <tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="price_unit"/>
+                                        <field name="qty"/>
+                                        <field name="appointment_id"/>
+                                    </tree>
+                                    <form>
+                                        <field name="product_id"/>
+                                        <field name="price_unit"/>
+                                        <field name="qty"/>
+                                        <field name="appointment_id"/>
+
+                                    </form>
+                                </field>
                             </group>
                         </page>
                     </notebook>

@@ -14,7 +14,7 @@
     'website': "",
     'category': 'Uncategorized',
     'version': '0.1',
-    'depends': ['base','mail'],
+    'depends': ['base','mail','product'],
     'data': [
         'security/ir.model.access.csv',
         'views/base_menu_view.xml',
