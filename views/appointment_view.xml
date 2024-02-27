@@ -65,7 +65,7 @@
         <field name='model'>hospital.appointment</field>
         <field name='arch' type="xml">
             <tree decoration-success="state =='done'" decoration-danger="state =='canceled'"
-                  decoration-warning="state =='waiting'" >
+                  decoration-warning="state =='waiting'" sample="1" >
                 <field name="patiant_id"/>
                 <field name="doctor_id" widget="many2one_avatar_user"/>
                 <field name="ref"/>
