@@ -8,5 +8,6 @@ class PatientTags(models.Model):
     name=fields.Char(string='Name',requried=1)
     active=fields.Boolean(string='Active')
     color = fields.Integer(string='Color')
+    color_2 = fields.Char(string='Color2')
 
 
