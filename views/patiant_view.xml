@@ -6,7 +6,9 @@
         <field name='arch' type="xml">
             <form>
                 <sheet>
+                    <field name="img" widget="image" class="oe_avatar"/>
                     <group>
+
                         <field name="name"/>
                         <field name="ref"/>
                         <field name="date_of_birth"/>

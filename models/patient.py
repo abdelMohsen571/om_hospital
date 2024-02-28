@@ -9,6 +9,7 @@ class HospitalPatiant(models.Model):
     _description = 'Pationt description'
 
     name = fields.Char(string="name",tracking=True)
+    img=fields.Image()
     ref = fields.Text(string='Reference')
     date_of_birth=fields.Date(string='Date Of Birth')
     age = fields.Integer(string="age",compute='_compute_age',store=True)

@@ -21,6 +21,7 @@
         'views/patiant_view.xml',
         'views/female_patiant_view.xml',
         'views/appointment_view.xml',
+        'views/patient_tags_view.xml',
         'views/users.xml',
         'wizard/create_appointment_wizard_view.xml',
     ],
