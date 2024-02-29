@@ -23,9 +23,11 @@
         'views/appointment_view.xml',
         'views/patient_tags_view.xml',
         'views/users.xml',
+        # 'data/patient_tags.csv',
         'wizard/create_appointment_wizard_view.xml',
         'wizard/cancel_appointment_wizard_view.xml',
         'data/patient_tags_data.xml',
+
     ],
 
     'demo': [],
