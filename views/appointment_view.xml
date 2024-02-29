@@ -59,7 +59,8 @@
                                 <field name="pharmacy_lines_ids">
                                     <tree editable="bottom">
                                         <field name="product_id"/>
-                                        <field name="price_unit"  attrs="{'column_invisible': [('parent.hide_sale_price', '=', True)]}"/>
+                                        <field name="price_unit"
+                                               attrs="{'column_invisible': [('parent.hide_sale_price', '=', True)]}"/>
                                         <field name="qty"/>
                                         <field name="appointment_id"/>
                                     </tree>
@@ -100,10 +101,30 @@
                 <field name="state" decoration-success="state =='done'"
                        decoration-info="state == 'draft' or state == 'waiting'"
                        widget="badge" optional="show"/>
-
             </tree>
         </field>
     </record>
+    <record id="hr_employee_view_activity" model="ir.ui.view">
+        <field name="name">hospital.appointment.activity</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <activity string="Appointment">
+                <field name="id"/>
+                <templates>
+                    <div t-name="activity-box">
+                        <img class="rounded"
+                             t-att-src="activity_image('hospital.patiant', 'img', record.patiant_id.raw_value)"
+                             t-att-title="record.patiant_id.value" t-att-alt="record.patiant_id.value"/>
+                        <div class="ms-2">
+                            <field name="patiant_id" dg"full" class="o_text_block"/>
+<!--                            <field name="job_id" muted="1" display="full" class="o_text_block"/>-->
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
 
     <!--    <record id="view_hospital_appointment_search" model="ir.ui.view">-->
     <!--        <field name="name">hospital.appointment.search</field>-->
@@ -118,7 +139,7 @@
         <field name="name">Appointments</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.appointment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,activity</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
