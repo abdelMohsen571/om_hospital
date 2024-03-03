@@ -24,11 +24,9 @@
         'views/patient_tags_view.xml',
         'views/users.xml',
         'wizard/create_appointment_wizard_view.xml',
-<<<<<<< HEAD
-=======
         'wizard/cancel_appointment_wizard_view.xml',
         'data/patient_tags_data.xml',
->>>>>>> parent of 356f5af (trying to uload data but from csv it failed)
+        'data/patient_sequence_data.xml',
     ],
 
     'demo': [],
