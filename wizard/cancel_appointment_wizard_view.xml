@@ -12,7 +12,10 @@
                             <field name="reason"/>
                         </gruop>
                         <gruop>
+                            <field name="date_cancel"/>
+
                         </gruop>
+
                     </group>
                     <footer>
                         <button name="cancel_appointment" type="object" data-hotkey="q"
