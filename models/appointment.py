@@ -5,7 +5,7 @@ class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Pationt Appointments'
-    name=fields.M
+    name=fields.Char(string='ref')
     patiant_id = fields.Many2one('hospital.patiant', string="name", tracking=True)
     ref = fields.Text(string='Refrence')
     gender = fields.Selection(related='patiant_id.gender', string="Gender", readonloy=True)
@@ -56,7 +56,7 @@ class HospitalAppointment(models.Model):
 
     @api.model
     def create(self, vals_list):
-        vals_list['ref'] = self.env['ir.sequence'].next_by_code('hospital.appointment')
+        vals_list['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment')
         return super(HospitalAppointment, self).create(vals_list)
 
 

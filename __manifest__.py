@@ -27,7 +27,8 @@
         'wizard/cancel_appointment_wizard_view.xml',
         'data/patient_tags_data.xml',
         'data/patient_sequence_data.xml',
-        'views/play_ground_view.xml'
+        'views/play_ground_view.xml',
+        'data/appointment_sequence_data.xml'
     ],
 
     'demo': [],

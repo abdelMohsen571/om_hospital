@@ -6,6 +6,7 @@
         <field name='arch' type="xml">
             <form delete="0">
                 <sheet>
+
                     <header>
                         <field name="state" widget="statusbar" nolabel="1"
                                statusbar_visible="draft,waiting,done"/>
@@ -14,12 +15,14 @@
                         <button string="Mark As Done" name="action_done" type="object" states="waiting"
                                 class="oe_highlight" data-hotkey="d"/>
                         <button string="Cancel" name="action_cancel" type="object" states="draft,waiting"
-                                data-hotkey="c"/>
+                                data-hotkey="c" context="{'default_appointment_id':active_id}"/>
                         <button string="Reset To Draft" name="action_draft" type="object" states="cancel"
                                 data-hotkey="t"/>
                     </header>
                     <div>
                         <h1>
+                            <field name="name"/>
+                        </h1><h1>
                             <field name="priority" widget="priority"/>
                         </h1>
                     </div>
