@@ -1,5 +1,6 @@
-from odoo import api, fields, models
+from odoo import api, fields, models,_
 from datetime import date,datetime,timedelta
+from odoo.exceptions import ValidationError
 import datetime
 class CancelAppointment(models.TransientModel):
     _name = "cancel.appointment.wizard"
@@ -9,7 +10,10 @@ class CancelAppointment(models.TransientModel):
     date_cancel=fields.Date(string='Cancellation Date')
 
     def cancel_appointment(self):
-        print('appointment canceld')
+        for rec in self:
+            if rec.appointment_id.booking_date==fields.Date.today():
+                raise ValidationError(_('sorry, cancellation is not allowed on the same day of booking'))
+            return
     @api.model
     def default_get(self, fields_list):
         res=super(CancelAppointment,self).default_get(fields_list)
