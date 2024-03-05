@@ -5,7 +5,7 @@ class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Pationt Appointments'
-
+    name=fields.M
     patiant_id = fields.Many2one('hospital.patiant', string="name", tracking=True)
     ref = fields.Text(string='Refrence')
     gender = fields.Selection(related='patiant_id.gender', string="Gender", readonloy=True)
@@ -42,20 +42,22 @@ class HospitalAppointment(models.Model):
         action = self.env.ref('om_hospital.cancel_appointment_wizard_action').read()[0]
         return action
 
-
     def action_waiting(self):
         for rec in self:
-           rec.state = 'waiting'
-
+            rec.state = 'waiting'
 
     def action_done(self):
         for rec in self:
             rec.state = 'done'
 
-
     def action_draft(self):
         for rec in self:
             rec.state = 'draft'
+
+    @api.model
+    def create(self, vals_list):
+        vals_list['ref'] = self.env['ir.sequence'].next_by_code('hospital.appointment')
+        return super(HospitalAppointment, self).create(vals_list)
 
 
 class AppointmentPharmacyLines(models.Model):
