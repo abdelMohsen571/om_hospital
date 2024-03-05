@@ -22,7 +22,8 @@
                     <div>
                         <h1>
                             <field name="name"/>
-                        </h1><h1>
+                        </h1>
+                        <h1>
                             <field name="priority" widget="priority"/>
                         </h1>
                     </div>
@@ -119,8 +120,8 @@
                              t-att-src="activity_image('hospital.patiant', 'img', record.patiant_id.raw_value)"
                              t-att-title="record.patiant_id.value" t-att-alt="record.patiant_id.value"/>
                         <div class="ms-2">
-                            <field name="patiant_id"  display="full" class="o_text_block"/>
-<!--                            <field name="job_id" muted="1" display="full" class="o_text_block"/>-->
+                            <field name="patiant_id" display="full" class="o_text_block"/>
+                            <!--                            <field name="job_id" muted="1" display="full" class="o_text_block"/>-->
                         </div>
                     </div>
                 </templates>
@@ -137,6 +138,19 @@
     <!--            </search>j-->
     <!--        </field>-->
     <!--    </record>-->
+
+    <record id="action_server_appointment_hospital" model="ir.actions.server">
+        <field name="name">Mark As Done</field>
+        <field name="model_id" ref="om_hospital.model_hospital_appointment"/>
+        <field name="binding_model_id" ref="model_hospital_appointment"/>
+        <!--        <field name="binding_view_types">form</field>-->
+        <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    if record.state == 'waiting':
+                         record.write({'state': 'done'})
+            </field>
+    </record>
 
     <record id="action_appointment_hospital" model="ir.actions.act_window">
         <field name="name">Appointments</field>
