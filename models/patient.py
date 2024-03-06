@@ -1,5 +1,6 @@
-from odoo import models, fields, api
+from odoo import models, fields, api,_
 from datetime import date, datetime, timedelta
+from odoo.exceptions import ValidationError
 
 
 class HospitalPatiant(models.Model):
@@ -30,6 +31,11 @@ class HospitalPatiant(models.Model):
         vals_list['ref'] = self.env['ir.sequence'].next_by_code('hospital.patiant')
         return super(HospitalPatiant, self).create(vals_list)
 
+    @api.constrains('date_of_birth')
+    def check_dat_of_birth(self):
+        for rec in self:
+            if rec.date_of_birth and rec.date_of_birth>fields.Date.today():
+                raise ValidationError(_('this data no acceptable'))
     # @api.model
     # def write(self, vals_list):
     #     if not self.ref and not vals_list.get['ref']:
