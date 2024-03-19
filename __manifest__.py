@@ -28,8 +28,10 @@
         'data/patient_tags_data.xml',
         'data/patient_sequence_data.xml',
         'views/play_ground_view.xml',
-        'data/appointment_sequence_data.xml'
+        'data/appointment_sequence_data.xml',
+        'views/res_config_settings_views.xml'
     ],
+
 
     'demo': [],
     'installable': True,
