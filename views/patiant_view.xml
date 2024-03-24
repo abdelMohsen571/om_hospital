@@ -13,6 +13,7 @@
                             <field name="ref"/>
                             <field name="date_of_birth"/>
                             <field name="age"/>
+                            <field name="your_field"/>
                         </group>
 
                         <group>
@@ -59,7 +60,7 @@
                 <filter name="archived_filter" string="Archived" domain="[('active','=','true')]"/>
 
                 <group expand="0" string="">
-                    <filter name="age_group" string="age" context="{'group_by':'age'}"/>
+<!--                    <filter name="age_group" string="age" context="{'group_by':'age'}"/>-->
                 </group>
                 <searchpanel>
                     <field name="gender" string="Categories" select='multi' icon="fa-users" enable_counters="1"/>

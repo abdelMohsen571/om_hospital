@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="hospital_change_field_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+                            <h1 class="text-center">طباعة التعديلات  </h1>
+                            <div style="direction: rtl ; padding: 20px; margin-bottom:50px">
+                                <table class="table table-bordered"
+                                       style="border: 1px solid black ;border-radius: 25px;">
+                                    <tr style="border: 0px solid black ;">
+                                        <th class="text-end" style="border: 0px solid black ;">كود الموظف</th>
+                                        <td colspan="2" style="border: 0px solid black ;">
+                                            <span style="margin:10px" t-esc="doc.old_name1"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="border: 0px solid black ;">
+                                        <th class="text-end" style="border: 0px solid black ;">اسم الموظف</th>
+                                        <td colspan="2" style="border: 0px solid black ;">
+                                            <span style="margin:10px" t-esc="doc.name"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div style="direction: rtl; border: 0px solid black ; padding: 20px; margin-bottom:50px">
+                                <table class="table table-condensed"
+                                       style="border: 1px solid black ;border-radius: 25px;">
+                                    <tr style="border: 0px solid black ;">
+                                        <th class="text-end" style="border: 0px solid black ;">اسم الحقل</th>
+                                        <th class="text-end" style="border: 0px solid black ;">القيمة السابقة</th>
+                                        <th class="text-end" style="border: 0px solid black ;">القيمة الحالية</th>
+                                        <th class="text-end" style="border: 0px solid black ;">تاريخ التعديل </th>
+                                    </tr>
+
+                                    <tr style="border: 1px solid black ;">
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            الاسم
+                                        </td>
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            <span style="margin:10px" t-esc="doc.old_name1"/>
+                                        </td>
+
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            <span style="margin:10px" t-esc="doc.name"/>
+                                        </td>
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                        <span style="margin:10px" t-esc="doc.name"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr style="border: 1px solid black ;">
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            الاسم
+                                        </td>
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            <span style="margin:10px" t-esc="doc.old_name1"/>
+                                        </td>
+
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            <span style="margin:10px" t-esc="doc.name"/>
+                                        </td>
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                        <span style="margin:10px" t-esc="doc.name"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr style="border: 1px solid black ;">
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            الاسم
+                                        </td>
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            <span style="margin:10px" t-esc="doc.old_name1"/>
+                                        </td>
+
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                            <span style="margin:10px" t-esc="doc.name"/>
+                                        </td>
+                                        <td class="text-end" style="border: 0px solid black ;">
+                                        <span style="margin:10px" t-esc="doc.name"/>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="action_hospital_change_field_template" model="ir.actions.report">
+            <field name="name">Fields Editing</field>
+            <field name="model">hospital.patiant</field>
+            <field name="report_type">qweb-html</field>
+            <!--            <field name="report_type">qweb-pdf</field>-->
+            <field name="report_name">om_hospital.hospital_change_field_template</field>
+            <field name="report_file">om_hospital.hospital_change_field_template</field>
+            <field name="binding_model_id" ref="om_hospital.model_hospital_patiant"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+
+</odoo>
+
